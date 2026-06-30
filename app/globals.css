@@ -1,0 +1,134 @@
+@import "tailwindcss";
+
+/* =====================================================
+   Tailwind v4 theme extensions via @theme
+   ===================================================== */
+@theme {
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+
+  /* Brand colors */
+  --color-cream: #F5F0E8;
+  --color-cream-dark: #EDE8E0;
+  --color-brown-deep: #1A1410;
+  --color-brown-mid: #4A3D30;
+  --color-brown-muted: #8A7060;
+  --color-gold: #C9A46E;
+  --color-gold-deep: #D4AF37;
+
+  /* Duration extensions */
+  --duration-400: 400ms;
+}
+
+/* =====================================================
+   Global resets & base styles
+   ===================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  background-color: #F5F0E8;
+  color: #1A1410;
+}
+
+/* Prevent horizontal overflow at any breakpoint */
+img, video, svg {
+  max-width: 100%;
+  display: block;
+}
+
+/* =====================================================
+   Custom font utilities (supplement Tailwind classes)
+   ===================================================== */
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.font-sans {
+  font-family: var(--font-sans);
+}
+
+/* =====================================================
+   Product page theme transition
+   ===================================================== */
+[data-product-page] {
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* =====================================================
+   Focus ring — accessible, minimal
+   ===================================================== */
+:focus-visible {
+  outline: 1px solid rgba(255, 255, 255, 0.6);
+  outline-offset: 3px;
+}
+
+/* On light backgrounds */
+.bg-cream :focus-visible,
+.bg-\[#F5F0E8\] :focus-visible {
+  outline-color: rgba(0, 0, 0, 0.4);
+}
+
+/* =====================================================
+   Scrollbar — subtle
+   ===================================================== */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.12);
+  border-radius: 2px;
+}
+
+/* =====================================================
+   Prefers reduced motion
+   ===================================================== */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* =====================================================
+   Hero CSS keyframes — used instead of Framer Motion
+   on hero so content always shows on real mobile devices
+   ===================================================== */
+@keyframes heroFadeUp {
+  from { opacity: 0; transform: translateY(32px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes heroFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes scrollBob {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(7px); }
+}
+
+/* =====================================================
+   Section fade-up classes — guaranteed to fire on
+   real mobile (no Intersection Observer dependency).
+   Elements animate in as soon as the page loads.
+   ===================================================== */
+.fade-up-1 { animation: heroFadeUp 0.7s 0.1s ease both; }
+.fade-up-2 { animation: heroFadeUp 0.7s 0.2s ease both; }
+.fade-up-3 { animation: heroFadeUp 0.7s 0.3s ease both; }
+.fade-up-4 { animation: heroFadeUp 0.7s 0.4s ease both; }
+.fade-up-5 { animation: heroFadeUp 0.7s 0.5s ease both; }
