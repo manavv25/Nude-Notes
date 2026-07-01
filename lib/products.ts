@@ -33,7 +33,7 @@ export type Product = {
 };
 
 export const INSTAGRAM_URL =
-  "https://www.instagram.com/nudenotesperfume?igsh=MWtsd283Y3VyMXZqOQ==";
+  "https://www.instagram.com/nudenotesperfume/";
 export const EMAIL = "nudenotesperfume@gmail.com";
 export const BUNDLE_PRICE = 999;
 export const PRODUCT_PRICE = 399;
