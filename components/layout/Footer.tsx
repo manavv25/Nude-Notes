@@ -9,6 +9,7 @@ const footerLinks = [
   { label: "Shop", href: "/shop" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
+  { label: "How to Order", href: "/how-to-order" },
   { label: "Shipping & Returns", href: "/shipping-returns" },
   { label: "Privacy Policy", href: "/privacy-policy" },
   { label: "Terms & Conditions", href: "/terms" },
